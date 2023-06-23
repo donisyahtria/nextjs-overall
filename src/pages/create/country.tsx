@@ -1,10 +1,32 @@
-export default function Page() {
+import { postCountriesFromDb } from "@/queries/postCountries";
+import React, { useState, ChangeEvent } from "react";
+
+const Create = () => {
+  const [inputValue, setInputValue] = useState("");
+  const [inputImage, setInputImage] = useState("");
+
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setInputValue(e.target.value);
+  };
+
+  const handleImageChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setInputImage(e.target.value);
+  };
+
+  const handleSubmit = () => {
+    postCountriesFromDb(inputValue, inputImage);
+  };
+
   return (
     <main>
-      <form className="m-auto flex flex-col w-fit p-40 gap-8">
-        <input type="text" placeholder="Enter your Country name" className="border border-black w-[400px]" />
-        <button>SUBMIT</button>
-      </form>
+      <h1>New</h1>
+      <input type="text" placeholder="Country" value={inputValue} onChange={handleInputChange} />
+      <input type="url" placeholder="Image URL" value={inputImage} onChange={handleImageChange} />
+      <button type="button" onClick={handleSubmit}>
+        Submit
+      </button>
     </main>
   );
-}
+};
+
+export default Create;

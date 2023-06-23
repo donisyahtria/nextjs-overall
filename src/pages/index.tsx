@@ -4,7 +4,6 @@
 import { Inter } from "next/font/google";
 import { Hero } from "@/sections/hero";
 import { Places } from "@/sections/places";
-
 import Head from "next/head";
 import { getCountriesFromDb } from "@/queries/getCountries";
 import { Country } from "@prisma/client";

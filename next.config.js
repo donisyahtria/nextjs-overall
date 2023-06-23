@@ -8,13 +8,13 @@ const nextConfig = {
   images: {
     domains: ["source.unsplash.com", "images.unsplash.com", "plus.unsplash.com"],
   },
-  rewrites: async () => [
-    {
-      source: "/sitemap.xml",
-      destination: "/api/sitemap",
-      permanent: true,
-    },
-  ],
+  // rewrites: async () => [
+  //   {
+  //     source: "/sitemap.xml",
+  //     destination: "/api/sitemap",
+  //     permanent: true,
+  //   },
+  // ],
 };
 
 module.exports = nextConfig;
